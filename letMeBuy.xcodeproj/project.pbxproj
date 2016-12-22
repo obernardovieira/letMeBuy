@@ -10,6 +10,8 @@
 		C0804BBC1E0C15AA0003B6F5 /* TabelaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0804BBB1E0C15AA0003B6F5 /* TabelaViewController.swift */; };
 		C0804BBE1E0C210E0003B6F5 /* TabelaListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0804BBD1E0C210E0003B6F5 /* TabelaListaViewController.swift */; };
 		C0804BC01E0C5D6C0003B6F5 /* EditNovaListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0804BBF1E0C5D6C0003B6F5 /* EditNovaListaViewController.swift */; };
+		C0804BC61E0C64B70003B6F5 /* ItemLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0804BC51E0C64B70003B6F5 /* ItemLista.swift */; };
+		C0804BC81E0C676A0003B6F5 /* ListaCompra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0804BC71E0C676A0003B6F5 /* ListaCompra.swift */; };
 		C0984B591E09D61D0051F9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0984B581E09D61D0051F9CB /* AppDelegate.swift */; };
 		C0984B5B1E09D61D0051F9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0984B5A1E09D61D0051F9CB /* ViewController.swift */; };
 		C0984B5E1E09D61D0051F9CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0984B5C1E09D61D0051F9CB /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		C0804BBB1E0C15AA0003B6F5 /* TabelaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabelaViewController.swift; path = ../TabelaViewController.swift; sourceTree = "<group>"; };
 		C0804BBD1E0C210E0003B6F5 /* TabelaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaListaViewController.swift; sourceTree = "<group>"; };
 		C0804BBF1E0C5D6C0003B6F5 /* EditNovaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNovaListaViewController.swift; sourceTree = "<group>"; };
+		C0804BC51E0C64B70003B6F5 /* ItemLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemLista.swift; path = ../ItemLista.swift; sourceTree = "<group>"; };
+		C0804BC71E0C676A0003B6F5 /* ListaCompra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListaCompra.swift; path = ../ListaCompra.swift; sourceTree = "<group>"; };
 		C0984B551E09D61D0051F9CB /* letMeBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = letMeBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0984B581E09D61D0051F9CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0984B5A1E09D61D0051F9CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		C0984B571E09D61D0051F9CB /* letMeBuy */ = {
 			isa = PBXGroup;
 			children = (
+				C0804BC71E0C676A0003B6F5 /* ListaCompra.swift */,
+				C0804BC51E0C64B70003B6F5 /* ItemLista.swift */,
 				C0804BBB1E0C15AA0003B6F5 /* TabelaViewController.swift */,
 				C0984B581E09D61D0051F9CB /* AppDelegate.swift */,
 				C0984B5A1E09D61D0051F9CB /* ViewController.swift */,
@@ -150,6 +156,8 @@
 			files = (
 				C0804BC01E0C5D6C0003B6F5 /* EditNovaListaViewController.swift in Sources */,
 				C0984B5B1E09D61D0051F9CB /* ViewController.swift in Sources */,
+				C0804BC61E0C64B70003B6F5 /* ItemLista.swift in Sources */,
+				C0804BC81E0C676A0003B6F5 /* ListaCompra.swift in Sources */,
 				C0804BBC1E0C15AA0003B6F5 /* TabelaViewController.swift in Sources */,
 				C0804BBE1E0C210E0003B6F5 /* TabelaListaViewController.swift in Sources */,
 				C0984B611E09D61D0051F9CB /* letMeBuy.xcdatamodeld in Sources */,
