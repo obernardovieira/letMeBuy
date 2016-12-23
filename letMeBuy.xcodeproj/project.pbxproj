@@ -18,6 +18,7 @@
 		C0984B611E09D61D0051F9CB /* letMeBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0984B5F1E09D61D0051F9CB /* letMeBuy.xcdatamodeld */; };
 		C0984B631E09D61D0051F9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0984B621E09D61D0051F9CB /* Assets.xcassets */; };
 		C0984B661E09D61D0051F9CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0984B641E09D61D0051F9CB /* LaunchScreen.storyboard */; };
+		C0FF5E141E0CE23E008E391E /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF5E131E0CE23E008E391E /* PickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C0984B621E09D61D0051F9CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0984B651E09D61D0051F9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0984B671E09D61D0051F9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0FF5E131E0CE23E008E391E /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewController.swift; path = ../PickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		C0984B571E09D61D0051F9CB /* letMeBuy */ = {
 			isa = PBXGroup;
 			children = (
+				C0FF5E131E0CE23E008E391E /* PickerViewController.swift */,
 				C0804BC71E0C676A0003B6F5 /* ListaCompra.swift */,
 				C0804BC51E0C64B70003B6F5 /* ItemLista.swift */,
 				C0804BBB1E0C15AA0003B6F5 /* TabelaViewController.swift */,
@@ -157,6 +160,7 @@
 				C0804BC01E0C5D6C0003B6F5 /* EditNovaListaViewController.swift in Sources */,
 				C0984B5B1E09D61D0051F9CB /* ViewController.swift in Sources */,
 				C0804BC61E0C64B70003B6F5 /* ItemLista.swift in Sources */,
+				C0FF5E141E0CE23E008E391E /* PickerViewController.swift in Sources */,
 				C0804BC81E0C676A0003B6F5 /* ListaCompra.swift in Sources */,
 				C0804BBC1E0C15AA0003B6F5 /* TabelaViewController.swift in Sources */,
 				C0804BBE1E0C210E0003B6F5 /* TabelaListaViewController.swift in Sources */,
