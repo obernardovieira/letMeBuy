@@ -9,11 +9,17 @@
 import UIKit
 
 class EditNovaListaViewController: UIViewController {
+    
+    var base: TabelaListaViewController?
 
+    @IBOutlet weak var tituloLista: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tituloLista.text = base?.navigationItem.title!
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +27,11 @@ class EditNovaListaViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onSave(_ sender: Any)
+    {
+        base?.navigationItem.title = tituloLista.text
+        navigationController!.popViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation

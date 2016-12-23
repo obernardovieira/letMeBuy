@@ -12,11 +12,25 @@ class TabelaListaViewController: UITableViewController {
 
     var listaItens : [ItemLista] = []
     
+    var base: TabelaViewController?
+    
     func adicionarItem(item : ItemLista)
     {
         listaItens.append(item)
         tableView.reloadData()
         print("N de itens \(listaItens.count)")
+    }
+    
+    @IBAction func onSave(_ sender: Any)
+    {
+        let nova_lista = ListaCompra(nome : navigationItem.title!, itens : listaItens)
+        base?.adicionarLista(lista: nova_lista)
+        navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func onEdit(_ sender: Any)
+    {
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     
     override func viewDidLoad() {
@@ -30,6 +44,8 @@ class TabelaListaViewController: UITableViewController {
         
         let newItem = ItemLista(designacao : "Carne", marca : "Cara", quantidade : 1, unidade : 1, preco : 5.0, observacoes : "Barato")
         adicionarItem(item: newItem)
+        let newItem2 = ItemLista(designacao : "CarneBoi", marca : "Barata", quantidade : 10, unidade : 1, preco : 15.0, observacoes : "Nem")
+        adicionarItem(item: newItem2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,25 +88,34 @@ class TabelaListaViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            listaItens.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
     
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
+        let row1 = fromIndexPath.row
+        let row2 = to.row
+        
+        let temp = listaItens[row1]
+        listaItens[row1] = listaItens[row2]
+        listaItens[row2] = temp
+        
+        tableView.reloadData()
     }
-    */
+ 
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -111,6 +136,12 @@ class TabelaListaViewController: UITableViewController {
         if(segue.identifier == "segueItem")
         {
             let vc = segue.destination as! ViewController
+            vc.base = self
+        }
+        
+        if(segue.identifier == "segueNomeLista")
+        {
+            let vc = segue.destination as! EditNovaListaViewController
             vc.base = self
         }
     }

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var etDesignacao: UITextField!
     @IBOutlet weak var etMarca: UITextField!
     @IBOutlet weak var etQuantidade: UITextField!
+    @IBOutlet weak var btUnidade: UIButton!
     @IBOutlet weak var etPreco: UITextField!
     @IBOutlet weak var etObservacoes: UITextField!
     
@@ -29,6 +30,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func alterarUnidade(unidade : String)
+    {
+        btUnidade.setTitle(unidade, for: UIControlState.normal)
+    }
+    
     @IBAction func onSave(_ sender: Any) {
         
         guard let designacao = etDesignacao.text else{ return }
@@ -69,5 +75,15 @@ class ViewController: UIViewController {
         navigationController!.popViewController(animated: true)
     }
 
-}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "segueUnidade")
+        {
+            let vc = segue.destination as! PickerViewController
+            vc.base = self
+        }
+    }}
 

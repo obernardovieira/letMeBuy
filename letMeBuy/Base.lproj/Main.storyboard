@@ -58,7 +58,18 @@
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="AVL-OK-bbw">
                                 <connections>
-                                    <segue destination="yuV-Mt-THC" kind="show" id="H5O-Ih-Yna"/>
+                                    <action selector="onEdit:" destination="U8x-yp-lot" id="yZp-OM-ZKV"/>
+                                    <segue destination="yuV-Mt-THC" kind="show" identifier="segueNomeLista" id="pvE-rC-d6K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="bs4-vP-yrT">
+                                <connections>
+                                    <action selector="onEdit:" destination="U8x-yp-lot" id="Bkv-0p-og3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="56o-e0-m8y">
+                                <connections>
+                                    <action selector="onSave:" destination="U8x-yp-lot" id="WVn-TR-SMf"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -157,16 +168,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xD-FX-Jez">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJO-OR-Akx">
                                 <rect key="frame" x="16" y="302" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="backgroundColor" red="0.90799366764828271" green="0.91727905014489364" blue="0.92910055051813467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="ZZ8-5q-ADF" kind="show" id="LbX-dA-RaF"/>
+                                    <segue destination="ZZ8-5q-ADF" kind="show" identifier="segueUnidade" id="ilt-xI-GnJ"/>
                                 </connections>
-                            </textField>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -178,6 +190,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btUnidade" destination="rJO-OR-Akx" id="Toq-QJ-E81"/>
                         <outlet property="etDesignacao" destination="xkd-I3-RjN" id="1D6-J0-Y4K"/>
                         <outlet property="etMarca" destination="Qjl-gx-Jb0" id="pbu-Io-fi6"/>
                         <outlet property="etObservacoes" destination="Gzs-EU-Key" id="nUz-3I-UK6"/>
@@ -210,7 +223,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="rUG-Mg-Mni">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nrn-Wz-52B"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nrn-Wz-52B">
+                            <connections>
+                                <action selector="onSave:" destination="ZZ8-5q-ADF" id="6Dk-RF-7DJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -251,8 +268,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Editar lista" id="Rvy-6L-fzL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QtU-Fx-oHt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QtU-Fx-oHt">
+                            <connections>
+                                <action selector="onSave:" destination="yuV-Mt-THC" id="B51-eE-Yqb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tituloLista" destination="TYP-hp-31N" id="2KQ-kM-fny"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzO-Y3-Ved" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +291,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListaTipo" textLabel="ZXV-54-fIw" detailTextLabel="z9V-XY-HvJ" style="IBUITableViewCellStyleValue1" id="TpJ-Mr-Mhh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listaTipo" textLabel="ZXV-54-fIw" detailTextLabel="z9V-XY-HvJ" style="IBUITableViewCellStyleValue1" id="TpJ-Mr-Mhh">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TpJ-Mr-Mhh" id="02z-EZ-4EO">

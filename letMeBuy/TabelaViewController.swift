@@ -10,14 +10,64 @@ import UIKit
 
 class TabelaViewController: UITableViewController {
 
+    var nomefichtxt = ""
+    var nomefichserial = ""
+    
+    var listas : [ListaCompra] = [ListaCompra]()
+    
+    func onEscreverSerializacao()
+    {
+        if NSKeyedArchiver.archiveRootObject(listas, toFile: nomefichserial )
+        {
+            print("Gravado com sucesso")
+        }
+        else
+        {
+            print("Erro a gravar")
+        }
+    }
+    
+    func onLerSerializacao()
+    {
+        let tab = NSKeyedUnarchiver.unarchiveObject(withFile: nomefichserial) as? [ListaCompra]
+        
+        if tab == nil
+        {
+            print("Erro a ler")
+        }
+        else
+        {
+            print("Li \(tab!.count) pessoas")
+        }
+        
+        listas = tab ?? []
+    }
+    
+    func adicionarLista(lista : ListaCompra)
+    {
+        listas.append(lista)
+        tableView.reloadData()
+        onEscreverSerializacao()
+        print("N de itens \(listas.count)")
+    }
+    
+    func getDocumentsFilename(filename : String) -> String {
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask ).first!
+        let filepath = DocumentsDirectory.appendingPathComponent(filename)
+        return filepath.path
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nomefichserial = getDocumentsFilename(filename: "meufich.dat")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        onLerSerializacao()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +79,27 @@ class TabelaViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listas.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listaTipo", for: indexPath)
 
         // Configure the cell...
-
+        let row = indexPath.row
+        
+        cell.textLabel?.text = listas[row].nome
+        cell.detailTextLabel?.text = "\(listas[row].itens.count)"
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +136,18 @@ class TabelaViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "segueLista")
+        {
+            let vc = segue.destination as! TabelaListaViewController
+            vc.base = self
+        }
     }
-    */
 
 }
