@@ -27,8 +27,8 @@ class ItemLista
         self.observacoes = observacoes
     }
     
-    convenience init(designacao : String, quantidade : Int, unidade : Int, observacoes : String)
+    /*convenience init(designacao : String, quantidade : Int, unidade : Int, observacoes : String)
     {
         self.init(designacao : designacao, marca : "", quantidade : quantidade, unidade : unidade, preco : 0.0, observacoes : observacoes)
-    }
+    }*/
 }

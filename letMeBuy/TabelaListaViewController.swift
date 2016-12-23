@@ -10,6 +10,15 @@ import UIKit
 
 class TabelaListaViewController: UITableViewController {
 
+    var listaItens : [ItemLista] = []
+    
+    func adicionarItem(item : ItemLista)
+    {
+        listaItens.append(item)
+        tableView.reloadData()
+        print("N de itens \(listaItens.count)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +27,9 @@ class TabelaListaViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let newItem = ItemLista(designacao : "Carne", marca : "Cara", quantidade : 1, unidade : 1, preco : 5.0, observacoes : "Barato")
+        adicionarItem(item: newItem)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +41,28 @@ class TabelaListaViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listaItens.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "linhaItem", for: indexPath)
+        
         // Configure the cell...
+        
+        let row = indexPath.row
+        
+        cell.textLabel?.text = listaItens[row].designacao
+        cell.detailTextLabel?.text = "\(listaItens[row].preco)"
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -66,6 +83,7 @@ class TabelaListaViewController: UITableViewController {
         }    
     }
     */
+    
 
     /*
     // Override to support rearranging the table view.
