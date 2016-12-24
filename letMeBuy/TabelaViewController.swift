@@ -1,5 +1,5 @@
 //
-//  TabelaListaViewController.swift
+//  TabelaViewController.swift
 //  letMeBuy
 //
 //  Created by Bernardo Vieira on 22/12/16.
@@ -8,35 +8,65 @@
 
 import UIKit
 
-class TabelaListaViewController: UITableViewController {
+class TabelaViewController: UITableViewController {
 
-    var listaItens : [ItemLista] = []
+    var nomefichtxt = ""
+    var nomefichserial = ""
     
-    var base: TabelaViewController?
-    var lista_original: ListaCompra?
+    var listas : [ListaCompra] = [ListaCompra]()
     
-    func adicionarItem(item : ItemLista)
+    func onEscreverSerializacao()
     {
-        listaItens.append(item)
-        tableView.reloadData()
-        print("N de itens \(listaItens.count)")
-    }
-    
-    @IBAction func onSave(_ sender: Any)
-    {
-        if lista_original != nil
+        if NSKeyedArchiver.archiveRootObject(listas, toFile: nomefichserial )
         {
-            let lista_atualizada = ListaCompra(nome : navigationItem.title!, itens : listaItens)
-            base?.atualizarLista(lista_original: lista_original!, lista_atualizada: lista_atualizada)
-            navigationController!.popViewController(animated: true)
+            print("Gravado com sucesso")
         }
         else
         {
-            let nova_lista = ListaCompra(nome : navigationItem.title!, itens : listaItens)
-            base?.adicionarLista(lista: nova_lista)
-            navigationController!.popViewController(animated: true)
-    
+            print("Erro a gravar")
         }
+    }
+    
+    func onLerSerializacao()
+    {
+        let tab = NSKeyedUnarchiver.unarchiveObject(withFile: nomefichserial) as? [ListaCompra]
+        
+        if tab == nil
+        {
+            print("Erro a ler")
+        }
+        else
+        {
+            print("Li \(tab!.count) pessoas")
+        }
+        
+        listas = tab ?? []
+    }
+    
+    func adicionarLista(lista : ListaCompra)
+    {
+        listas.append(lista)
+        tableView.reloadData()
+        onEscreverSerializacao()
+        print("N de itens \(listas.count)")
+    }
+    
+    func atualizarLista(lista_original : ListaCompra, lista_atualizada : ListaCompra)
+    {
+        let index = listas.index(of: lista_original)
+        if(index != nil)
+        {
+            listas.remove(at: index!)
+            listas.insert(lista_atualizada, at: index!)
+            tableView.reloadData()
+            onEscreverSerializacao()
+        }
+    }
+    
+    func getDocumentsFilename(filename : String) -> String {
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask ).first!
+        let filepath = DocumentsDirectory.appendingPathComponent(filename)
+        return filepath.path
     }
     
     @IBAction func onEdit(_ sender: Any)
@@ -46,25 +76,15 @@ class TabelaListaViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nomefichserial = getDocumentsFilename(filename: "meufich.dat")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        /*let newItem = ItemLista(designacao : "Carne", marca : "Cara", quantidade : 1, unidade : 1, preco : 5.0, observacoes : "Barato")
-        adicionarItem(item: newItem)
-        let newItem2 = ItemLista(designacao : "CarneBoi", marca : "Barata", quantidade : 10, unidade : 1, preco : 15.0, observacoes : "Nem")
-        adicionarItem(item: newItem2)*/
-        
-        if lista_original != nil
-        {
-            listaItens = (lista_original?.itens)!
-            navigationItem.title = lista_original?.nome
-            tableView.reloadData()
-        }
-        
+        onLerSerializacao()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,23 +101,32 @@ class TabelaListaViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaItens.count
+        return listas.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "linhaItem", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listaTipo", for: indexPath)
+
         // Configure the cell...
-        
         let row = indexPath.row
         
-        cell.textLabel?.text = listaItens[row].designacao
-        cell.detailTextLabel?.text = "\(listaItens[row].preco)"
-
+        cell.textLabel?.text = listas[row].nome
+        cell.detailTextLabel?.text = "\(listas[row].itens.count)"
+        
         return cell
     }
- 
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let lista = listas[indexPath.row]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "editarLista") as! TabelaListaViewController
+        
+        vc.lista_original = lista
+        vc.base = self
+        
+        navigationController?.show(vc, sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -112,29 +141,29 @@ class TabelaListaViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            listaItens.remove(at: indexPath.row)
+            listas.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
- 
     
 
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
         let row1 = fromIndexPath.row
         let row2 = to.row
         
-        let temp = listaItens[row1]
-        listaItens[row1] = listaItens[row2]
-        listaItens[row2] = temp
+        let temp = listas[row1]
+        listas[row1] = listas[row2]
+        listas[row2] = temp
         
         tableView.reloadData()
+        
     }
- 
+    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -144,26 +173,18 @@ class TabelaListaViewController: UITableViewController {
     }
     */
 
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if(segue.identifier == "segueItem")
+        if(segue.identifier == "segueLista")
         {
-            let vc = segue.destination as! ViewController
-            vc.base = self
-        }
-        
-        if(segue.identifier == "segueNomeLista")
-        {
-            let vc = segue.destination as! EditNovaListaViewController
+            let vc = segue.destination as! TabelaListaViewController
             vc.base = self
         }
     }
- 
 
 }

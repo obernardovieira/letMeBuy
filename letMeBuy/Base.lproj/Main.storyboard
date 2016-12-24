@@ -13,28 +13,28 @@
         <!--Nova lista-->
         <scene sceneID="Kl5-d3-yMV">
             <objects>
-                <tableViewController id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="editarLista" id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="adt-dA-mNT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LinhaItem" textLabel="L85-ug-zB2" detailTextLabel="vnW-CC-PYT" style="IBUITableViewCellStyleValue1" id="lyY-c6-ryo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="linhaItem" textLabel="L85-ug-zB2" detailTextLabel="vnW-CC-PYT" style="IBUITableViewCellStyleValue1" id="lyY-c6-ryo">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lyY-c6-ryo" id="5Bp-SL-DPK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L85-ug-zB2">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vnW-CC-PYT">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -53,12 +53,23 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="bLV-rB-N90">
                                 <connections>
-                                    <segue destination="ypO-ws-LSe" kind="show" id="2n5-HB-6QT"/>
+                                    <segue destination="ypO-ws-LSe" kind="show" identifier="segueItem" id="2n5-HB-6QT"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="AVL-OK-bbw">
                                 <connections>
-                                    <segue destination="yuV-Mt-THC" kind="show" id="H5O-Ih-Yna"/>
+                                    <action selector="onEdit:" destination="U8x-yp-lot" id="yZp-OM-ZKV"/>
+                                    <segue destination="yuV-Mt-THC" kind="show" identifier="segueNomeLista" id="pvE-rC-d6K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="bs4-vP-yrT">
+                                <connections>
+                                    <action selector="onEdit:" destination="U8x-yp-lot" id="Bkv-0p-og3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="56o-e0-m8y">
+                                <connections>
+                                    <action selector="onSave:" destination="U8x-yp-lot" id="WVn-TR-SMf"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -71,7 +82,7 @@
         <!--Item-->
         <scene sceneID="qTb-bV-1Je">
             <objects>
-                <viewController id="ypO-ws-LSe" customClass="ViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editarItem" id="ypO-ws-LSe" customClass="ViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9az-bf-ogd"/>
                         <viewControllerLayoutGuide type="bottom" id="C0R-91-CDc"/>
@@ -129,13 +140,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-dj-s5C">
-                                <rect key="frame" x="16" y="302" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zH-zP-UWB">
                                 <rect key="frame" x="16" y="340" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -164,16 +168,75 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJO-OR-Akx">
+                                <rect key="frame" x="16" y="302" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90799366764828271" green="0.91727905014489364" blue="0.92910055051813467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZZ8-5q-ADF" kind="show" identifier="segueUnidade" id="ilt-xI-GnJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Item" id="CQR-Ae-dKl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NUn-fS-CvQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NUn-fS-CvQ">
+                            <connections>
+                                <action selector="onSave:" destination="ypO-ws-LSe" id="jFH-bZ-Zsk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btUnidade" destination="rJO-OR-Akx" id="Toq-QJ-E81"/>
+                        <outlet property="etDesignacao" destination="xkd-I3-RjN" id="1D6-J0-Y4K"/>
+                        <outlet property="etMarca" destination="Qjl-gx-Jb0" id="pbu-Io-fi6"/>
+                        <outlet property="etObservacoes" destination="Gzs-EU-Key" id="nUz-3I-UK6"/>
+                        <outlet property="etPreco" destination="D9O-H5-Rxd" id="Ew2-Mz-Rfb"/>
+                        <outlet property="etQuantidade" destination="PPg-gN-GTU" id="15X-ya-eQO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWK-3c-lN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3519.375" y="287.32394366197184"/>
+        </scene>
+        <!--Unidade-->
+        <scene sceneID="ZRW-Mj-vtu">
+            <objects>
+                <viewController id="ZZ8-5q-ADF" customClass="PickerViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xUN-LS-MgE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mjc-Dz-SMT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RWd-1q-NIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-00-O7G">
+                                <rect key="frame" x="0.0" y="176" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Unidade" id="rUG-Mg-Mni">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nrn-Wz-52B">
+                            <connections>
+                                <action selector="onSave:" destination="ZZ8-5q-ADF" id="6Dk-RF-7DJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="picker" destination="Dfx-00-O7G" id="DOt-Kd-s9X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jop-AO-3mR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4584" y="288"/>
         </scene>
         <!--Editar lista-->
         <scene sceneID="Wqx-Re-Vy8">
@@ -205,8 +268,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Editar lista" id="Rvy-6L-fzL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QtU-Fx-oHt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QtU-Fx-oHt">
+                            <connections>
+                                <action selector="onSave:" destination="yuV-Mt-THC" id="B51-eE-Yqb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tituloLista" destination="TYP-hp-31N" id="2KQ-kM-fny"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzO-Y3-Ved" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,22 +291,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListaTipo" textLabel="ZXV-54-fIw" detailTextLabel="z9V-XY-HvJ" style="IBUITableViewCellStyleValue1" id="TpJ-Mr-Mhh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listaTipo" textLabel="ZXV-54-fIw" detailTextLabel="z9V-XY-HvJ" style="IBUITableViewCellStyleValue1" id="TpJ-Mr-Mhh">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TpJ-Mr-Mhh" id="02z-EZ-4EO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZXV-54-fIw">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z9V-XY-HvJ">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -252,11 +322,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inicio" id="zdI-Ut-sWW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gGF-GW-DTK">
-                            <connections>
-                                <segue destination="U8x-yp-lot" kind="show" id="WYr-nh-lMf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="gGF-GW-DTK">
+                                <connections>
+                                    <segue destination="U8x-yp-lot" kind="show" identifier="segueLista" id="WYr-nh-lMf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="lbU-eD-hvP">
+                                <connections>
+                                    <action selector="onEdit:" destination="j0f-27-YDU" id="5uj-hR-WCI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwI-Se-qRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
