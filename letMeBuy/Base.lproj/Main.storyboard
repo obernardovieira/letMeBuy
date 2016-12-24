@@ -13,7 +13,7 @@
         <!--Nova lista-->
         <scene sceneID="Kl5-d3-yMV">
             <objects>
-                <tableViewController id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="editarLista" id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="adt-dA-mNT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,18 +23,18 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lyY-c6-ryo" id="5Bp-SL-DPK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L85-ug-zB2">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vnW-CC-PYT">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -82,7 +82,7 @@
         <!--Item-->
         <scene sceneID="qTb-bV-1Je">
             <objects>
-                <viewController id="ypO-ws-LSe" customClass="ViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editarItem" id="ypO-ws-LSe" customClass="ViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9az-bf-ogd"/>
                         <viewControllerLayoutGuide type="bottom" id="C0R-91-CDc"/>
@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="3519.375" y="287.32394366197184"/>
         </scene>
-        <!--Title-->
+        <!--Unidade-->
         <scene sceneID="ZRW-Mj-vtu">
             <objects>
                 <viewController id="ZZ8-5q-ADF" customClass="PickerViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
@@ -222,7 +222,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="rUG-Mg-Mni">
+                    <navigationItem key="navigationItem" title="Unidade" id="rUG-Mg-Mni">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="nrn-Wz-52B">
                             <connections>
                                 <action selector="onSave:" destination="ZZ8-5q-ADF" id="6Dk-RF-7DJ"/>
@@ -295,18 +295,18 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TpJ-Mr-Mhh" id="02z-EZ-4EO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZXV-54-fIw">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z9V-XY-HvJ">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -322,11 +322,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inicio" id="zdI-Ut-sWW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gGF-GW-DTK">
-                            <connections>
-                                <segue destination="U8x-yp-lot" kind="show" identifier="segueLista" id="WYr-nh-lMf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="gGF-GW-DTK">
+                                <connections>
+                                    <segue destination="U8x-yp-lot" kind="show" identifier="segueLista" id="WYr-nh-lMf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="lbU-eD-hvP">
+                                <connections>
+                                    <action selector="onEdit:" destination="j0f-27-YDU" id="5uj-hR-WCI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwI-Se-qRk" userLabel="First Responder" sceneMemberID="firstResponder"/>

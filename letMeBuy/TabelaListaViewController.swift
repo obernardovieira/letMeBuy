@@ -13,6 +13,7 @@ class TabelaListaViewController: UITableViewController {
     var listaItens : [ItemLista] = []
     
     var base: TabelaViewController?
+    var lista_original: ListaCompra?
     
     func adicionarItem(item : ItemLista)
     {
@@ -23,9 +24,19 @@ class TabelaListaViewController: UITableViewController {
     
     @IBAction func onSave(_ sender: Any)
     {
-        let nova_lista = ListaCompra(nome : navigationItem.title!, itens : listaItens)
-        base?.adicionarLista(lista: nova_lista)
-        navigationController!.popViewController(animated: true)
+        if lista_original != nil
+        {
+            let lista_atualizada = ListaCompra(nome : navigationItem.title!, itens : listaItens)
+            base?.atualizarLista(lista_original: lista_original!, lista_atualizada: lista_atualizada)
+            navigationController!.popViewController(animated: true)
+        }
+        else
+        {
+            let nova_lista = ListaCompra(nome : navigationItem.title!, itens : listaItens)
+            base?.adicionarLista(lista: nova_lista)
+            navigationController!.popViewController(animated: true)
+    
+        }
     }
     
     @IBAction func onEdit(_ sender: Any)
@@ -42,10 +53,18 @@ class TabelaListaViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        let newItem = ItemLista(designacao : "Carne", marca : "Cara", quantidade : 1, unidade : 1, preco : 5.0, observacoes : "Barato")
+        /*let newItem = ItemLista(designacao : "Carne", marca : "Cara", quantidade : 1, unidade : 1, preco : 5.0, observacoes : "Barato")
         adicionarItem(item: newItem)
         let newItem2 = ItemLista(designacao : "CarneBoi", marca : "Barata", quantidade : 10, unidade : 1, preco : 15.0, observacoes : "Nem")
-        adicionarItem(item: newItem2)
+        adicionarItem(item: newItem2)*/
+        
+        if lista_original != nil
+        {
+            listaItens = (lista_original?.itens)!
+            navigationItem.title = lista_original?.nome
+            tableView.reloadData()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -51,10 +51,27 @@ class TabelaViewController: UITableViewController {
         print("N de itens \(listas.count)")
     }
     
+    func atualizarLista(lista_original : ListaCompra, lista_atualizada : ListaCompra)
+    {
+        let index = listas.index(of: lista_original)
+        if(index != nil)
+        {
+            listas.remove(at: index!)
+            listas.insert(lista_atualizada, at: index!)
+            tableView.reloadData()
+            onEscreverSerializacao()
+        }
+    }
+    
     func getDocumentsFilename(filename : String) -> String {
         let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask ).first!
         let filepath = DocumentsDirectory.appendingPathComponent(filename)
         return filepath.path
+    }
+    
+    @IBAction func onEdit(_ sender: Any)
+    {
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     
     override func viewDidLoad() {
@@ -99,7 +116,17 @@ class TabelaViewController: UITableViewController {
         
         return cell
     }
- 
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let lista = listas[indexPath.row]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "editarLista") as! TabelaListaViewController
+        
+        vc.lista_original = lista
+        vc.base = self
+        
+        navigationController?.show(vc, sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -109,24 +136,34 @@ class TabelaViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            listas.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
+        let row1 = fromIndexPath.row
+        let row2 = to.row
+        
+        let temp = listas[row1]
+        listas[row1] = listas[row2]
+        listas[row2] = temp
+        
+        tableView.reloadData()
+        
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
