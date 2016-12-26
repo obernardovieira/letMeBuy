@@ -94,10 +94,31 @@ class TabelaListaViewController: UITableViewController {
         
         cell.textLabel?.text = listaItens[row].designacao
         cell.detailTextLabel?.text = "\(listaItens[row].preco)"
+        
+        if listaItens[row].selecionado == true
+        {
+            cell.accessoryType = .checkmark
+        }
 
         return cell
     }
- 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark
+            {
+                cell.accessoryType = .none
+                listaItens[indexPath.row].selecionado = false
+            }
+            else
+            {
+                cell.accessoryType = .checkmark
+                listaItens[indexPath.row].selecionado = true
+            }
+            tableView.deselectRow(at: [indexPath.row], animated: true)
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
