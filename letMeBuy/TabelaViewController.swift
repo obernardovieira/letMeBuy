@@ -13,6 +13,7 @@ class TabelaViewController: UITableViewController {
     var nomefichtxt = ""
     var nomefichserial = ""
     
+    var ordemElementos : Int = 0
     var listas : [ListaCompra] = [ListaCompra]()
     
     func onEscreverSerializacao()
@@ -41,6 +42,15 @@ class TabelaViewController: UITableViewController {
         }
         
         listas = tab ?? []
+    }
+    
+    func alterarOrdem(ordem : Int)
+    {
+        ordemElementos = ordem
+        
+        //do some shit!
+        
+        tableView.reloadData()
     }
     
     func adicionarLista(lista : ListaCompra)
