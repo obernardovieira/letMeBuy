@@ -15,6 +15,7 @@
 		C0984B611E09D61D0051F9CB /* letMeBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0984B5F1E09D61D0051F9CB /* letMeBuy.xcdatamodeld */; };
 		C0984B631E09D61D0051F9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0984B621E09D61D0051F9CB /* Assets.xcassets */; };
 		C0984B661E09D61D0051F9CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0984B641E09D61D0051F9CB /* LaunchScreen.storyboard */; };
+		C09F770E1E1036E20017F196 /* AntigosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F770D1E1036E20017F196 /* AntigosViewController.swift */; };
 		C0FF5E161E0CEF95008E391E /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF5E151E0CEF95008E391E /* PickerViewController.swift */; };
 		C0FF5E241E0CF1AE008E391E /* ItemLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF5E231E0CF1AE008E391E /* ItemLista.swift */; };
 		C0FF5E261E0CF1B5008E391E /* ListaCompra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF5E251E0CF1B5008E391E /* ListaCompra.swift */; };
@@ -32,6 +33,7 @@
 		C0984B621E09D61D0051F9CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0984B651E09D61D0051F9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0984B671E09D61D0051F9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09F770D1E1036E20017F196 /* AntigosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntigosViewController.swift; sourceTree = "<group>"; };
 		C0FF5E151E0CEF95008E391E /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		C0FF5E231E0CF1AE008E391E /* ItemLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLista.swift; sourceTree = "<group>"; };
 		C0FF5E251E0CF1B5008E391E /* ListaCompra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaCompra.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		C0984B571E09D61D0051F9CB /* letMeBuy */ = {
 			isa = PBXGroup;
 			children = (
+				C09F770D1E1036E20017F196 /* AntigosViewController.swift */,
 				C0FF5E271E0CF1BC008E391E /* TabelaViewController.swift */,
 				C0FF5E251E0CF1B5008E391E /* ListaCompra.swift */,
 				C0FF5E231E0CF1AE008E391E /* ItemLista.swift */,
@@ -163,6 +166,7 @@
 				C0FF5E261E0CF1B5008E391E /* ListaCompra.swift in Sources */,
 				C0984B5B1E09D61D0051F9CB /* ViewController.swift in Sources */,
 				C0804BBE1E0C210E0003B6F5 /* TabelaListaViewController.swift in Sources */,
+				C09F770E1E1036E20017F196 /* AntigosViewController.swift in Sources */,
 				C0FF5E281E0CF1BC008E391E /* TabelaViewController.swift in Sources */,
 				C0984B611E09D61D0051F9CB /* letMeBuy.xcdatamodeld in Sources */,
 				C0984B591E09D61D0051F9CB /* AppDelegate.swift in Sources */,
