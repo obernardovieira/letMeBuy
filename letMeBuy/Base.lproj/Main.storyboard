@@ -289,6 +289,40 @@
             </objects>
             <point key="canvasLocation" x="3519" y="1145"/>
         </scene>
+        <!--Ordem-->
+        <scene sceneID="vmm-Gw-gwI">
+            <objects>
+                <viewController id="u40-L3-O72" customClass="OrdemViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0bM-K3-Psf"/>
+                        <viewControllerLayoutGuide type="bottom" id="tyX-fE-bpg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M6l-Ph-MId">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJz-Mi-ol9">
+                                <rect key="frame" x="0.0" y="176" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ordem" id="npG-Bh-Geh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="q0S-GA-2uH">
+                            <connections>
+                                <action selector="onSave:" destination="u40-L3-O72" id="BcM-Ie-VQ4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerOrdem" destination="dJz-Mi-ol9" id="FRm-lb-wzB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykt-hL-O2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="1144"/>
+        </scene>
         <!--Editar lista-->
         <scene sceneID="Wqx-Re-Vy8">
             <objects>
@@ -382,6 +416,11 @@
                             <barButtonItem systemItem="compose" id="lbU-eD-hvP">
                                 <connections>
                                     <action selector="onEdit:" destination="j0f-27-YDU" id="5uj-hR-WCI"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="fef-Fg-r42">
+                                <connections>
+                                    <segue destination="u40-L3-O72" kind="show" id="sZd-Bb-sf9"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

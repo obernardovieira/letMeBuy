@@ -16,6 +16,7 @@ class ItemLista: NSObject,NSCoding
     var unidade : Int
     var preco : Float
     var observacoes : String
+    var selecionado : Bool
     
     init(designacao : String, marca : String, quantidade : Int, unidade : Int, preco : Float, observacoes : String)
     {
@@ -25,6 +26,7 @@ class ItemLista: NSObject,NSCoding
         self.unidade = unidade
         self.preco = preco
         self.observacoes = observacoes
+        self.selecionado = false
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +47,9 @@ class ItemLista: NSObject,NSCoding
         
         let observacoes = aDecoder.decodeObject(forKey: "observacoes") as? String
         self.observacoes = observacoes!
+        
+        let selecionado = aDecoder.decodeBool(forKey: "selecionado")
+        self.selecionado = selecionado
     }
     
     func encode(with aCoder: NSCoder) {
@@ -54,5 +59,6 @@ class ItemLista: NSObject,NSCoding
         aCoder.encode(unidade, forKey: "unidade")
         aCoder.encode(preco, forKey: "preco")
         aCoder.encode(observacoes, forKey: "observacoes")
+        aCoder.encode(selecionado, forKey: "selecionado")
     }
 }
