@@ -13,12 +13,12 @@ class ItemLista: NSObject,NSCoding
     var designacao : String
     var marca : String
     var quantidade : Int
-    var unidade : Int
+    var unidade : String
     var preco : Float
     var observacoes : String
     var selecionado : Bool
     
-    init(designacao : String, marca : String, quantidade : Int, unidade : Int, preco : Float, observacoes : String)
+    init(designacao : String, marca : String, quantidade : Int, unidade : String, preco : Float, observacoes : String)
     {
         self.designacao = designacao
         self.marca = marca
@@ -39,8 +39,8 @@ class ItemLista: NSObject,NSCoding
         let quantidade = aDecoder.decodeInteger(forKey: "quantidade")
         self.quantidade = quantidade
         
-        let unidade = aDecoder.decodeInteger(forKey: "unidade")
-        self.unidade = unidade
+        let unidade = aDecoder.decodeObject(forKey: "unidade") as? String
+        self.unidade = unidade!
         
         let preco = aDecoder.decodeFloat(forKey: "preco")
         self.preco = preco

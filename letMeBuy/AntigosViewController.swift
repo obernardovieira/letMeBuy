@@ -14,6 +14,8 @@ class AntigosViewController: UITableViewController {
     var ultimaLista : Int = 0
     var ultimoItem : Int = -1
     
+    var base_lista: TabelaListaViewController?
+    
     func getDocumentsFilename(filename : String) -> String {
         let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask ).first!
         let filepath = DocumentsDirectory.appendingPathComponent(filename)
@@ -104,6 +106,27 @@ class AntigosViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var findList : Int = 0
+        var Row : Int = 0
+        
+        
+        repeat
+        {
+            //
+            Row = Row + listas[findList].itens.count
+            findList = findList + 1
+        } while(Row <= indexPath.row)
+        
+        let realRow = indexPath.row - listas[findList - 1].itens.count + 1
+        let item = listas[findList - 1].itens[realRow]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "editarItem") as! ViewController
+        
+        vc.item_original = item
+        vc.base = base_lista
+        
+        navigationController?.show(vc, sender: self)
         
     }
  

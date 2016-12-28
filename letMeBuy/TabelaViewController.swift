@@ -10,10 +10,9 @@ import UIKit
 
 class TabelaViewController: UITableViewController {
 
-    var nomefichtxt = ""
     var nomefichserial = ""
     
-    var ordemElementos : Int = 0
+    
     var listas : [ListaCompra] = [ListaCompra]()
     
     func onEscreverSerializacao()
@@ -44,14 +43,7 @@ class TabelaViewController: UITableViewController {
         listas = tab ?? []
     }
     
-    func alterarOrdem(ordem : Int)
-    {
-        ordemElementos = ordem
-        
-        //do some shit!
-        
-        tableView.reloadData()
-    }
+    
     
     func adicionarLista(lista : ListaCompra)
     {
@@ -190,7 +182,7 @@ class TabelaViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if(segue.identifier == "segueLista")
+        if segue.identifier == "segueLista"
         {
             let vc = segue.destination as! TabelaListaViewController
             vc.base = self

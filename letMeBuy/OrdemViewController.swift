@@ -13,7 +13,7 @@ class OrdemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var pickerOrdem: UIPickerView!
     
     var pickerData: [String] = [String]()
-    var base: TabelaViewController?
+    var base: TabelaListaViewController?
     var selectIndex: Int = 0
     
     @IBAction func onSave(_ sender: Any) {
@@ -33,7 +33,7 @@ class OrdemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.pickerOrdem.dataSource = self
         
         // Input data into the Array:
-        pickerData = ["nome", "marca"]
+        pickerData = ["nome", "marca", "comprados"]
         
         self.pickerOrdem.reloadAllComponents()
     }

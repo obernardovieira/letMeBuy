@@ -13,7 +13,7 @@
         <!--Nova lista-->
         <scene sceneID="Kl5-d3-yMV">
             <objects>
-                <tableViewController storyboardIdentifier="editarLista" id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="editarLista" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U8x-yp-lot" customClass="TabelaListaViewController" customModule="letMeBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="adt-dA-mNT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,18 +23,18 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lyY-c6-ryo" id="5Bp-SL-DPK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L85-ug-zB2">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vnW-CC-PYT">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -70,6 +70,11 @@
                             <barButtonItem systemItem="save" id="56o-e0-m8y">
                                 <connections>
                                     <action selector="onSave:" destination="U8x-yp-lot" id="WVn-TR-SMf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="fNL-6Y-H6r">
+                                <connections>
+                                    <segue destination="u40-L3-O72" kind="show" identifier="segueOrdem" id="C2F-BJ-C1F"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -191,7 +196,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="organize" id="0Tj-F9-WJH">
                                 <connections>
-                                    <segue destination="fgZ-B2-oPk" kind="show" id="epV-jh-wWr"/>
+                                    <segue destination="fgZ-B2-oPk" kind="show" identifier="segueAntigo" id="epV-jh-wWr"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -222,18 +227,18 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0En-R2-Kvd" id="YsM-7l-dnJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0S-Y4-97K">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WAd-Q1-nmT">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -365,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzO-Y3-Ved" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2319" y="1146"/>
+            <point key="canvasLocation" x="2366" y="1143"/>
         </scene>
         <!--Inicio-->
         <scene sceneID="98N-jQ-hf6">
@@ -380,18 +385,18 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TpJ-Mr-Mhh" id="02z-EZ-4EO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZXV-54-fIw">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z9V-XY-HvJ">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -416,11 +421,6 @@
                             <barButtonItem systemItem="compose" id="lbU-eD-hvP">
                                 <connections>
                                     <action selector="onEdit:" destination="j0f-27-YDU" id="5uj-hR-WCI"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="action" id="fef-Fg-r42">
-                                <connections>
-                                    <segue destination="u40-L3-O72" kind="show" id="sZd-Bb-sf9"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

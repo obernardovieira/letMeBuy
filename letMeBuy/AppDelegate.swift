@@ -14,6 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    func switchViewControllers() {
+        
+        // switch root view controllers
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "editarLista")
+        
+        self.window?.rootViewController = nav
+        
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
