@@ -33,7 +33,7 @@ class OrdemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.pickerOrdem.dataSource = self
         
         // Input data into the Array:
-        pickerData = ["nome", "marca"]
+        pickerData = ["nome", "marca", "comprados"]
         
         self.pickerOrdem.reloadAllComponents()
     }
