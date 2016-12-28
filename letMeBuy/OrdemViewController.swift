@@ -13,7 +13,7 @@ class OrdemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var pickerOrdem: UIPickerView!
     
     var pickerData: [String] = [String]()
-    var base: TabelaViewController?
+    var base: TabelaListaViewController?
     var selectIndex: Int = 0
     
     @IBAction func onSave(_ sender: Any) {

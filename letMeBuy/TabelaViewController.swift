@@ -12,7 +12,7 @@ class TabelaViewController: UITableViewController {
 
     var nomefichserial = ""
     
-    var ordemElementos : Int = -1
+    
     var listas : [ListaCompra] = [ListaCompra]()
     
     func onEscreverSerializacao()
@@ -43,42 +43,7 @@ class TabelaViewController: UITableViewController {
         listas = tab ?? []
     }
     
-    func alterarOrdem(ordem : Int)
-    {
-        ordemElementos = ordem
-        print("organizar")
-        if ordem == 0
-        {
-            print("nome")
-            organizarPorNome()
-        }
-        else if ordem == 1
-        {
-            organizarPorMarca()
-        }
-        else if ordem == 2
-        {
-            organizarPorComprado()
-        }
-        
-        tableView.reloadData()
-    }
     
-    func organizarPorNome()
-    {
-        //
-        listas = listas.sorted(by: { $0.nome < $1.nome })
-    }
-    
-    func organizarPorMarca()
-    {
-        //
-    }
-    
-    func organizarPorComprado()
-    {
-        //
-    }
     
     func adicionarLista(lista : ListaCompra)
     {
@@ -220,11 +185,6 @@ class TabelaViewController: UITableViewController {
         if segue.identifier == "segueLista"
         {
             let vc = segue.destination as! TabelaListaViewController
-            vc.base = self
-        }
-        else if segue.identifier == "segueOrdem"
-        {
-            let vc = segue.destination as! OrdemViewController
             vc.base = self
         }
     }

@@ -11,15 +11,57 @@ import UIKit
 class TabelaListaViewController: UITableViewController {
 
     var listaItens : [ItemLista] = []
+    var ordemElementos : Int = -1
     
     var base: TabelaViewController?
     var lista_original: ListaCompra?
+    
+    var own_base: TabelaListaViewController?
     
     func adicionarItem(item : ItemLista)
     {
         listaItens.append(item)
         tableView.reloadData()
         print("N de itens \(listaItens.count)")
+    }
+    
+    func alterarOrdem(ordem : Int)
+    {
+        ordemElementos = ordem
+        print("organizar")
+        if ordem == 0
+        {
+            print("nome")
+            organizarPorNome()
+        }
+        else if ordem == 1
+        {
+            organizarPorMarca()
+        }
+        else if ordem == 2
+        {
+            organizarPorComprado()
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func organizarPorNome()
+    {
+        //
+        listaItens = listaItens.sorted(by: { $0.designacao < $1.designacao })
+    }
+    
+    func organizarPorMarca()
+    {
+        //
+        listaItens = listaItens.sorted(by: { $0.marca < $1.marca })
+    }
+    
+    func organizarPorComprado()
+    {
+        //
+        listaItens = listaItens.sorted(by: { (($0.selecionado == false) ? (0) : (1)) < (($1.selecionado == false) ? (0) : (1)) })
     }
     
     @IBAction func onSave(_ sender: Any)
@@ -58,12 +100,22 @@ class TabelaListaViewController: UITableViewController {
         let newItem2 = ItemLista(designacao : "CarneBoi", marca : "Barata", quantidade : 10, unidade : 1, preco : 15.0, observacoes : "Nem")
         adicionarItem(item: newItem2)*/
         
+        if own_base != nil
+        {
+            listaItens = (own_base?.listaItens)!
+            ordemElementos = (own_base?.ordemElementos)!
+            base = own_base?.base
+            lista_original = own_base?.lista_original
+        }
+        
         if lista_original != nil
         {
             listaItens = (lista_original?.itens)!
             navigationItem.title = lista_original?.nome
             tableView.reloadData()
         }
+        
+        
         
     }
 
@@ -98,6 +150,10 @@ class TabelaListaViewController: UITableViewController {
         if listaItens[row].selecionado == true
         {
             cell.accessoryType = .checkmark
+        }
+        else
+        {
+            cell.accessoryType = .none
         }
 
         return cell
@@ -182,6 +238,12 @@ class TabelaListaViewController: UITableViewController {
         if(segue.identifier == "segueNomeLista")
         {
             let vc = segue.destination as! EditNovaListaViewController
+            vc.base = self
+        }
+        
+        else if segue.identifier == "segueOrdem"
+        {
+            let vc = segue.destination as! OrdemViewController
             vc.base = self
         }
     }
